@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title></title>
+
+<script type="text/javascript">
+window.onload = function() {
+  var imgs = document.getElementsByTagName('img'), i, img;
+  for (i = 0; i < imgs.length; i++) {
+    img = imgs[i];
+    // center an image if it is the only element of its parent
+    if (img.parentElement.childElementCount === 1)
+      img.parentElement.style.textAlign = 'center';
+  }
+};
+</script>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: #990073
+   }
+
+   pre .number {
+     color: #099;
+   }
+
+   pre .comment {
+     color: #998;
+     font-style: italic
+   }
+
+   pre .keyword {
+     color: #900;
+     font-weight: bold
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: #d14;
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 13px;
+}
+
+body {
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+  line-height: 20px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 {
+   font-size:2.2em;
+}
+
+h2 {
+   font-size:1.8em;
+}
+
+h3 {
+   font-size:1.4em;
+}
+
+h4 {
+   font-size:1.0em;
+}
+
+h5 {
+   font-size:0.9em;
+}
+
+h6 {
+   font-size:0.8em;
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre, img {
+  max-width: 100%;
+}
+pre {
+  overflow-x: auto;
+}
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code {
+  font-size: 92%;
+  border: 1px solid #ccc;
+}
+
+code[class] {
+  background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * {
+      background: transparent !important;
+      color: black !important;
+      filter:none !important;
+      -ms-filter: none !important;
+   }
+
+   body {
+      font-size:12pt;
+      max-width:100%;
+   }
+
+   a, a:visited {
+      text-decoration: underline;
+   }
+
+   hr {
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote {
+      padding-right: 1em;
+      page-break-inside: avoid;
+   }
+
+   tr, img {
+      page-break-inside: avoid;
+   }
+
+   img {
+      max-width: 100% !important;
+   }
+
+   @page :left {
+      margin: 15mm 20mm 15mm 10mm;
+   }
+
+   @page :right {
+      margin: 15mm 10mm 15mm 20mm;
+   }
+
+   p, h2, h3 {
+      orphans: 3; widows: 3;
+   }
+
+   h2, h3 {
+      page-break-after: avoid;
+   }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<p>#Introduction</p>
+
+<p>This project is an application of Machine Learning techniques to a specific case of Human Activity Recognition (HAR). According to the source of the data, linked below, HAR typically focuses on discriminating between different activities, i.e. to predict &ldquo;which&rdquo; activity was performed at a specific point in time. However, in this case, we seek to examine and classify how <em>well</em> a specific activity was performed by the user. As one might imagine, this is a timely question: as personal activity monitors become increasingly pervasive and tools like smartphones develop increasingly sophisticated capacities to monitor and record such data, the demand for making use of data on the efficacy of physical tasks performed by users will undoubtedly continue to increase.</p>
+
+<p>To read more about this dataset, to view the publication it was originally developed for, or to learn more about HAR, visit the source for the data here: <a href="http://groupware.les.inf.puc-rio.br/har#weight_lifting_exercises#ixzz3SQNYLCP3">http://groupware.les.inf.puc-rio.br/har#weight_lifting_exercises#ixzz3SQNYLCP3</a></p>
+
+<p>##Exploratory analysis</p>
+
+<p>This dataset contains recordings from accelerometers placed on the belt, forearm, arm, and dumbell of 6 participants. They were asked to perform barbell lifts correctly and incorrectly in 5 different ways. The training set contains 19622 observations of 160 variables, and the test set contains 20 observations of as many variables.</p>
+
+<p><em>Note: this code assumes the user has data downloaded and saved in a directory with the specified location; alter this to reflect the correct directory if data is located elsewhere. The data can be obtained at <a href="https://d396qusza40orc.cloudfront.net/predmachlearn/pml-training.csv">https://d396qusza40orc.cloudfront.net/predmachlearn/pml-training.csv</a> (training data) and <a href="https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv">https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv</a> (testing data).</em> </p>
+
+<pre><code class="r">setwd(&quot;~/Documents/Coursera/Practical Machine Learning/Project/Data&quot;)
+test &lt;- read.csv(&quot;pml-testing.csv&quot;, na.strings=c(&quot;&quot;,&quot;NA&quot;))
+train &lt;- read.csv(&quot;pml-training.csv&quot;, na.strings=c(&quot;&quot;,&quot;NA&quot;))
+</code></pre>
+
+<p>The variable of interest to the predictive model constructed here is the &#39;classe&#39; variable (or the &ldquo;exercise class&rdquo;), so I will briefly examine that here. According to the data source, the classes are as follows:</p>
+
+<p>*Class A: exactly according to the specification
+*Class B: throwing the elbows to the front
+*Class C: lifting the dumbbell only halfway
+*Class D: lowering the dumbbell only halfway
+*Class E: throwing the hips to the front</p>
+
+<p>Class A corresponds to the specified execution of the exercise, while the other 4 classes correspond to common mistakes. </p>
+
+<pre><code class="r">library(ggplot2)
+ggplot(train, aes(x = classe)) + geom_histogram()
+</code></pre>
+
+<p><img src="data:image/png;base64,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" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" style="display: block; margin: auto;" /></p>
+
+<p>The training set includes over 3000 instances of each of the exercise classes, which suggests that we have sufficient data to train our model to predict each class. </p>
+
+<p>#Data cleaning and processing</p>
+
+<p>In addition to being very large, sensor data can also be quite messy&ndash;this dataset is no exception. Here, we immediately see a very large number of variables with missing values.</p>
+
+<pre><code class="r">library(plyr)
+NAcount &lt;- as.data.frame(sapply(train, function(x) sum(is.na(x))))
+NAcount &lt;- cbind(names(train), NAcount)
+names(NAcount) &lt;- c(&quot;variable&quot; , &quot;count&quot;)
+
+table(NAcount$count)
+</code></pre>
+
+<pre><code>## 
+##     0 19216 
+##    60   100
+</code></pre>
+
+<p>As we can see above, there are 100 variables in the training set that are missing in all 19216 instances, while the remaining 60 variables are complete in all cases. The variables which consist of entirely NA values may be due to a faulty sensor, data collection or entry errors, or a variety of other factors. Being unable to investigate why these may be missing, and seeing as they add no predictive power to our model as the dataset stands, I elected to remove them. I did this by selecting only those variables of the training dataset which have zero missing values, as calculated in the &#39;NAcount&#39; data generated above (note that, as shown above, all variables in the dataset contained either zero missing values or were entirely missing):</p>
+
+<pre><code class="r">cleantrain &lt;- train[,NAcount$count==0]
+</code></pre>
+
+<p>As noted above, because there were no other missing values in the dataset, no imputation of missing values was necessary&ndash;at this point, all observations contain only complete cases. However, if it were necessary, imputation would have been performed at this point.</p>
+
+<p>Before passing this data to a model, it was also important to evaluate which variables to use to train the model. For the purposes of modeling, this dataset contains variables that are likely to not add to the predictiveness of our model, or even confound it. The first seven columns of the training set (and the new cleantrain dataset generated above) contain measures which are not relevant to prediction, at least in the contexts in which we might want to evaluate exercise technique. These include the index number of the observation, name of the subject that performed the exercise, timestamps, and window numbers for participants. Even if these are indeed predictive, as they may well be, in this case it would seem undesirable for our model to be sensitive to these parameters (for example, we want the model to evaluate based on accelerometer and movement data, not based on the timestamp or window of the observations, even though those may somehow be releated to the users&#39; technique&ndash;the user could improve their technique as the experiment progresses). I remove those variables as well, preserving the original cleantrain data if needed:</p>
+
+<pre><code class="r">cleantrain2 &lt;- cleantrain[,8:60]
+</code></pre>
+
+<p>#Model Creation and Evaluation</p>
+
+<p>For modeling this dataset, I adopted a random forest model. As Hastie, Tibshirani, and Friedman write in <em>The Elements of Statistical Learning</em>, &ldquo;random forests is a substantial modification of bagging that builds a large collection of <em>de-correlated</em> trees, and then averages them.&rdquo; This model was chosen for its accuracy and its ability to handle nonlinear data. Trees are able to handle complex interaction structures in data, and have relatively low bias if grown sufficiently deep. Additionally, since tree models are known to be quite noisy, the averaging implemented as part of the random forest model is extremely helpful as it serves to reduce their variance without affecting model bias.</p>
+
+<p>Although a random forest model may be subject to challenges in interpretability, speed in model building, and overfitting, these were not major concerns in this case: the nature of this exercise favors predictiveness over interpretability, and we can therefore adopt more of a &ldquo;black box&rdquo; approach; I have already built the model and judged the model-building process to be acceptably speedy; and the large dataset (n = 19622 in training set) helps ensure a good model fit. We can also assess the potential of overfitting when examining the expected error statistics for the model and by applying it to the test set.</p>
+
+<p>The model is generated below:</p>
+
+<pre><code class="r">set.seed(1919); modfit &lt;- randomForest(classe ~ ., data = cleantrain2)
+</code></pre>
+
+<p>Model fit, error, and summary statistics are provided below:</p>
+
+<pre><code class="r">modfit
+</code></pre>
+
+<pre><code>## 
+## Call:
+##  randomForest(formula = classe ~ ., data = cleantrain2) 
+##                Type of random forest: classification
+##                      Number of trees: 500
+## No. of variables tried at each split: 7
+## 
+##         OOB estimate of  error rate: 0.28%
+## Confusion matrix:
+##      A    B    C    D    E  class.error
+## A 5578    1    0    0    1 0.0003584229
+## B   10 3784    3    0    0 0.0034237556
+## C    0    9 3411    2    0 0.0032144944
+## D    0    0   20 3194    2 0.0068407960
+## E    0    0    1    5 3601 0.0016634322
+</code></pre>
+
+<p>We immediately see that this model appears to be extremely strong when applied to the training set; the estimated error rate is a mere 0.28%. The model misclassified only 54 observations out of the nearly 20,000 observations in the test set. </p>
+
+<p>If one wished to increase the speed with which the model was built, a next step might be to prune the predictors used to build the model, selecting a subset of the strongest or most &ldquo;important&rdquo; predictors, calling a function such as varImp(modfit) to evaluate the importance of variables in this model (to preserve space, I do not reproduce the output of the function here). One could then rebuild a new random forest model using only those predictors that were most important to the model, gaining some speed and efficiency in model building and application while likely sacrificing little in terms of predictive power.</p>
+
+<p>#Out of sample error and prediction of error using cross-validation</p>
+
+<p>In random forests, there is no need for cross-validation or a separate test to obtain an unbiased estimate of the test set error. This calculation is performed during the building of the model: each tree is constructed using a different bootstrap sample from the original data, and the data left out in the construction of a given tree is passed through the tree to obtain a classification for each of those cases. The error rate of these left-out observations applied to the trees is the out of bag (OOB) error estimate. As Hastie, Tibshirani, and Friedman write in <em>The Elements of Statistical Learning</em>, &ldquo;[a]n OOB error estimate is almost identical to that obtained by N-fold cross-validation.&rdquo; For this model, the estimated OOB error rate is 0.28% (see above).</p>
+
+<p>In addition, predictions for the test data are shown below (note: the test data is transformed to exclude the same variables as above, so the model only predicts on variables it was trained on):</p>
+
+<pre><code class="r">cleantest &lt;- test[,NAcount$count==0]
+cleantest2 &lt;- cleantest[,8:60]
+predict(modfit, cleantest2)
+</code></pre>
+
+<pre><code>##  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 
+##  B  A  B  A  A  E  D  B  A  A  B  C  B  A  E  E  A  B  B  B 
+## Levels: A B C D E
+</code></pre>
+
+<p>I note here that these predictions exactly match the correct classifications for the test set, which is to say that the model has 100% accuracy on the testing set (although this should not be considered a statistically rigorous evaluation of model fit; the test set in this case consists of only 20 observations). This seems to support the extremely low OOB error rate calculated during the model build, but further evaluation on a larger test set would be necessary to confirm the model&#39;s out of sample performance.</p>
+
+</body>
+
+</html>
